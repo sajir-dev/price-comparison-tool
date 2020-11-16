@@ -2,6 +2,7 @@ package domain
 
 // Item struct defines an item
 type Item struct {
+	ItemID      string `json:"itemid"`
 	ItemName    string `json:"item"`
 	Price       string `json:"price"`
 	Brand       string `json:"brand"`

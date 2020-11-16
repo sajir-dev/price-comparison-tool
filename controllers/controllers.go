@@ -22,6 +22,7 @@ func GetItem(c *gin.Context) {
 		return
 	}
 
+	// itemData, err := services.GetItem(req.ItemName, req.MarketPlace)
 	itemData, err := services.GetItem(req.ItemName, req.MarketPlace)
 	if err != nil {
 		c.JSON(http.StatusNotFound, gin.H{
