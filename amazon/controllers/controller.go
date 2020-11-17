@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
+	"fmt"
 
 	"../services"
 )
@@ -15,5 +16,6 @@ func GetItem(item string) (string, error) {
 	}
 
 	itemJson, _ := json.Marshal(itemData)
+	fmt.Println("from amazon controller", itemJson)
 	return string(itemJson), nil
 }

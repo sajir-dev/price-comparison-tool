@@ -1,8 +1,13 @@
 package services
 
-import "../domain"
+import (
+	"fmt"
 
-func GetItem(itemName string, marketplace string) (*domain.Item, error) {
+	"../domain"
+)
+
+func GetItem(itemName string, marketplace string) ([]domain.Item, error) {
 	item, err := domain.GetItem(itemName, marketplace)
+	fmt.Println("from app services", item)
 	return item, err
 }

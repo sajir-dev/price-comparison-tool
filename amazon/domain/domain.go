@@ -30,7 +30,7 @@ func GetItemsFromDB(item string) ([]Item, error) {
 	var Items []Item
 	for rows.Next() {
 		item := Item{}
-		err = rows.Scan(&item.ItemID, &item.ItemName, &item.Price, &item.Brand, &item.Platform, &item.Description, &item.Rating)
+		err = rows.Scan(&item.ItemID, &item.ItemName, &item.Price, &item.Brand, &item.Description, &item.Rating, &item.Platform)
 		if err != nil {
 			fmt.Println(err)
 			panic(err)
@@ -38,6 +38,7 @@ func GetItemsFromDB(item string) ([]Item, error) {
 		}
 		Items = append(Items, item)
 	}
+	fmt.Println(Items)
 	return Items, nil
 }
 

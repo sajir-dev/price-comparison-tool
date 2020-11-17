@@ -1,6 +1,10 @@
 package services
 
-import "../domain"
+import (
+	"fmt"
+
+	"../domain"
+)
 
 func GetItem(item string) (*domain.Item, error) {
 	itemData, err := domain.GetItemData(item)
@@ -10,5 +14,6 @@ func GetItem(item string) (*domain.Item, error) {
 // GetItems From DB
 func GetItems(item string) ([]domain.Item, error) {
 	itemData, err := domain.GetItemsFromDB(item)
+	fmt.Println(itemData)
 	return itemData, err
 }

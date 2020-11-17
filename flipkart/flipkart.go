@@ -1,11 +1,17 @@
 package flipkart
 
 import (
-	"./controllers"
+	"encoding/json"
+
+	"./services"
 )
 
 // GetItem ...
 func GetItem(item string) (string, error) {
-	itemData, err := controllers.GetItem(item)
-	return itemData, err
+	itemData, err := services.GetItem(item)
+	if err != nil {
+		return "", err
+	}
+	itemJson, _ := json.Marshal(itemData)
+	return string(itemJson), nil
 }

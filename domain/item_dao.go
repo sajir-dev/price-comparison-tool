@@ -3,19 +3,20 @@ package domain
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 
 	"../amazon"
 	"../flipkart"
 )
 
 // GetOneItem queries an item from db
-func GetItem(itemName string, marketplace string) (*Item, error) {
+func GetItem(itemName string, marketplace string) ([]Item, error) {
 	// TODO query an item from db
 
 	// item0, err0 := flipkart.GetItem(itemName)
 	// item1, err1 := amazon.GetItem(itemName)
 
-	var OneItem *Item
+	var OneItem []Item
 
 	// err0 = json.Unmarshal([]byte(item0), Items[0])
 	// err1 = json.Unmarshal([]byte(item1), Items[1])
@@ -40,8 +41,8 @@ func GetItem(itemName string, marketplace string) (*Item, error) {
 				return nil, err
 			}
 
-			json.Unmarshal([]byte(item), &OneItem)
-
+			json.Unmarshal([]byte(item), OneItem)
+			fmt.Println(item)
 			return OneItem, nil
 		}
 
