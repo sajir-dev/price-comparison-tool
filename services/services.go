@@ -7,7 +7,7 @@ import (
 )
 
 func GetItem(itemName string, marketplace string) ([]domain.Item, error) {
-	item, err := domain.GetItem(itemName, marketplace)
-	fmt.Println("from app services", item)
-	return item, err
+	items, err := domain.GetItem(itemName, marketplace)
+	fmt.Println("from app services", items)
+	return items, err
 }

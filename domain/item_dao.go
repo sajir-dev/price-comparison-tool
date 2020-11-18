@@ -41,8 +41,8 @@ func GetItem(itemName string, marketplace string) ([]Item, error) {
 				return nil, err
 			}
 
-			json.Unmarshal([]byte(item), OneItem)
-			fmt.Println(item)
+			err = json.Unmarshal([]byte(item), &OneItem)
+			fmt.Println("from app domain", OneItem, err)
 			return OneItem, nil
 		}
 
